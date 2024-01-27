@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f109fdc8fd4ee6937859f52a1397ef, type: 3}
+  m_Name: Settings
+  m_EditorClassIdentifier: 
+  tileBaseCount: 4
+  tileBase:
+  - {fileID: 11400000, guid: 3a3f276f83399a44fbd632c38ca15fe4, type: 2}
+  - {fileID: 11400000, guid: c3eb149b07398e4468b82082809591f3, type: 2}
+  - {fileID: 11400000, guid: 91ffdc3f0719f3f4183df5a1d5361ff3, type: 2}
+  - {fileID: 11400000, guid: 6eb3fe74d350bb64cb24c39989df756a, type: 2}
+  countButton: 4
+  posXButton: 0100000000000000fffffffffeffffff
+  countAlbum: 1
+  nameAlbum:
+  - The Little Nightmare
+  countMode: 2
+  nameMode:
+  - weak
+  - hard
+  level: 3
+  nameLevel:
+  - easy
+  - hard
+  - expert
+  rate: 3
+  nameRate:
+  - wee nies
+  - wumbo
+  - like larry
+  limitRate: 1400000050000000b4000000
+  ratePoint: 020000000300000004000000
