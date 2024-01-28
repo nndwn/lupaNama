@@ -28,6 +28,7 @@ namespace CultureShock.Scripts.GamePlay
 
         public Animator clownDance;
         private static readonly int IfMissed = Animator.StringToHash("ifMissed");
+        private static readonly int Correct = Animator.StringToHash("ifCorrect");
 
         private void Start()
         {
@@ -132,18 +133,14 @@ namespace CultureShock.Scripts.GamePlay
 
         public void IfMiss()
         {
-            if (!clownDance.GetBool(IfMissed))
-            {
-                clownDance.SetBool(IfMissed, true);
-            }
+            clownDance.SetTrigger(IfMissed);
+            clownDance.ResetTrigger(Correct);
         }
 
         public void IfCorrect()
         {
-            if (clownDance.GetBool(IfMissed))
-            {
-                clownDance.SetBool(IfMissed, false);
-            }
+          clownDance.ResetTrigger(IfMissed);
+          clownDance.SetTrigger(Correct);
 
             textScore.text = (c.correct * c.point).to_s();
 
