@@ -11,6 +11,8 @@ namespace CultureShock.Scripts.GamePlay
 
         public StartGamePlay startGamePlay;
 
+        public GameController gameController;
+
         private void Awake()
         {
             _input = new @Controller();
@@ -35,6 +37,7 @@ namespace CultureShock.Scripts.GamePlay
         {
             Debug.Log("test");
             startGamePlay.selfAnimator.SetBool(StartGamePlay.OutStartPanel, true);
+            gameController.startGameplay = true;
         }
 
         public void OnLb(InputAction.CallbackContext context)

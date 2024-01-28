@@ -42,6 +42,7 @@ namespace CultureShock.Scripts.GamePlay
             if (Input.GetKeyDown(key) && _startLastAnim )
             {
                 selfAnimator.SetBool(OutStartPanel, true);
+                controller.startGameplay = true;
             }
             
             

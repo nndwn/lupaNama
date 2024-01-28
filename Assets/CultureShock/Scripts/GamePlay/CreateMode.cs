@@ -37,7 +37,7 @@ namespace CultureShock.Scripts.GamePlay
             Addressables.InitializeAsync();
             c.FillString();
             CreateSetTilemap();
-            Toolkit.LoadAudio(c.createAlbum.musics[c.clip].audioClip,audioGame.audioGame,0);
+          
         }
         
         private void CreateSetTilemap()

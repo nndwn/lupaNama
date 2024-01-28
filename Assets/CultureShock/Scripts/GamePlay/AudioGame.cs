@@ -34,13 +34,13 @@ namespace CultureShock.Scripts.GamePlay
         private void Start()
         {
             GetSpectrumDot();
-            if (controller.startGameplay) Toolkit.LoadAudio(refaudioBg, audioBg);
+           
         }
 
         private void Update()
         {
-            if (controller.runningBgCount >= controller.startNumberFrom)
-                StartCoroutine(FadeOutAudio("background", fadeMinNumber));
+            // if (controller.runningBgCount >= controller.startNumberFrom)
+            //     StartCoroutine(FadeOutAudio("background", fadeMinNumber));
 
             if (controller.missPoint > 0)
                 StartCoroutine(FadeOutAudio("gameplay", -20));

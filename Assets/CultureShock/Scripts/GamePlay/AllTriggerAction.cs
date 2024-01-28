@@ -1,4 +1,5 @@
 using CultureShock.Scripts.Main;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,8 +19,15 @@ namespace CultureShock.Scripts.GamePlay
 
         private Vector3 target;
 
-    
-        
+        public AudioClip[] hitSound;
+
+        public AudioGame audioGame;
+
+        public TMP_Text textScore;
+
+
+        public Animator clownDance;
+        private static readonly int IfMissed = Animator.StringToHash("ifMissed");
 
         private void Start()
         {
@@ -116,6 +124,31 @@ namespace CultureShock.Scripts.GamePlay
             }
         }
 
+        public void RandomSoundHit()
+        {
+            audioGame.audioGame.clip = hitSound[Random.Range(0, hitSound.Length)];
+            audioGame.audioGame.Play();
+        }
+
+        public void IfMiss()
+        {
+            if (!clownDance.GetBool(IfMissed))
+            {
+                clownDance.SetBool(IfMissed, true);
+            }
+        }
+
+        public void IfCorrect()
+        {
+            if (clownDance.GetBool(IfMissed))
+            {
+                clownDance.SetBool(IfMissed, false);
+            }
+
+            textScore.text = (c.correct * c.point).to_s();
+
+        }
+
         public void RemoveTile(int count, string names, int x)
         {
             if (c.modeCreate) return;
@@ -126,6 +159,8 @@ namespace CultureShock.Scripts.GamePlay
                         new Vector3Int(x, tile[k].tilePositions[count - 1].y, 0),
                         null);
         }
+        
+         
 
 
 #if UNITY_EDITOR

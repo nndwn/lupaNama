@@ -27,7 +27,6 @@ namespace CultureShock.Scripts.GamePlay
         private void Start()
         {
             FirstBackgroundPosition();
-            ShowInputButton();
             if (controller.modeCreate)
                 cameraMove.transform.localPosition = new Vector3(0, -12.5f, -10);
             else
@@ -36,6 +35,8 @@ namespace CultureShock.Scripts.GamePlay
 
         private void Update()
         {
+            ShowInputButton();
+   
             MoveBackground();
             RunVerticalTile();
         }
@@ -91,7 +92,7 @@ namespace CultureShock.Scripts.GamePlay
         {
             move = controller.Tempo * Time.deltaTime * controller.speedMove;
             if (!controller.moveFirst) return;
-            if (backgroundMove.anchoredPosition.y > 0)
+            if (backgroundMove.anchoredPosition.y > 0 && !controller.moveLast)
             {
                 controller.moveLast = false;
                 backgroundMove.anchoredPosition =

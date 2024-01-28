@@ -57,6 +57,7 @@ namespace CultureShock.Scripts.GamePlay
                     if (tileBase == bodyLong || tileBase == finishLong)
                         if (aktifBody)
                         {
+                          
                             AllTrigger.c.correct++;
                             AllTrigger.c.hitPoint++;
                             AllTrigger.c.missPoint = 0;
@@ -77,10 +78,12 @@ namespace CultureShock.Scripts.GamePlay
                         canPress = false;
                         if (!righPush)
                         {
+                            
                             AllTrigger.c.miss++;
                             AllTrigger.c.hitPoint = 0;
                             AllTrigger.c.missPoint++;
                             AllTrigger.AnimatePoint();
+                            AllTrigger.IfMiss();
                         }
                     }
 
@@ -121,6 +124,8 @@ namespace CultureShock.Scripts.GamePlay
                         AllTrigger.c.hitPoint++;
                         AllTrigger.ScorePoint();
                         AllTrigger.AnimatePoint();
+                        AllTrigger.RandomSoundHit();
+                        AllTrigger.IfCorrect();
 
                         righPush = false;
                         canPress = false;

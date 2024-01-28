@@ -4,6 +4,7 @@ using CultureShock.Scripts.Main;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 namespace CultureShock.Scripts.GamePlay
@@ -70,6 +71,7 @@ namespace CultureShock.Scripts.GamePlay
         public string[] AlbumStrings { get; set; }
         public string[] ClipString { get; set; }
 
+        public GameObject gameOverPanel;
 
         public string[] ModeString { get; set; }
 
@@ -85,6 +87,7 @@ namespace CultureShock.Scripts.GamePlay
 
         private void Start()
         {
+            Cursor.visible = false;
             CheckAnalisa.errorText = "";
             CheckAnalisa.valueUptile = 0;
             CheckAnalisa.fps = 0f;
@@ -92,7 +95,12 @@ namespace CultureShock.Scripts.GamePlay
 
         private void Update()
         {
-            
+            if (moveLast && !gameOverPanel.activeSelf)
+            {
+                gameOverPanel.SetActive(true);
+
+            }
+
             AveragePoint();
             fps = CheckAnalisa.fps;
             CheckAnalisa.valueUptile = heightTile;
@@ -100,6 +108,16 @@ namespace CultureShock.Scripts.GamePlay
 #if UNITY_EDITOR
             ConfCursor();
 #endif
+        }
+
+        public void LoadScene(string scene)
+        {
+            SceneManager.LoadScene(scene);
+        }
+
+        public void Quit()
+        {
+            Application.Quit();
         }
 
 
